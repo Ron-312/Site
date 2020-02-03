@@ -85,7 +85,7 @@ function onOpenProject(idx) {
      $email = $('.email-form').val()
      $subject = $('.subject-form').val()
      $comment = $('.comment-form').val()
-     if($email !== /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/){
+     if(!ValidateEmail($email)){
          $(".contact-form").addClass('shake');
          $('.email-form').val('Invalid email!')
          setTimeout(function(){
@@ -93,6 +93,15 @@ function onOpenProject(idx) {
          },1000)
 
      }else{
-         window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=rn9hm1@gmail.com.com&su=${$subject}&body=${$comment}`, `_blank`)
+         window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=ron9hm1@gmail.com&su=${$subject}&body=${$comment}`, `_blank`)
      }
  }
+
+ function ValidateEmail(mail) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+  {
+    return (true)
+  }
+    return (false)
+}
