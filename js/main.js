@@ -85,5 +85,14 @@ function onOpenProject(idx) {
      $email = $('.email-form').val()
      $subject = $('.subject-form').val()
      $comment = $('.comment-form').val()
-    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${$email}.com&su=${$subject}&body=${$comment}`, `_blank`)
+     if($email !== /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/){
+         $(".contact-form").addClass('shake');
+         $('.email-form').val('Invalid email!')
+         setTimeout(function(){
+            $(".contact-form").removeClass('shake');   
+         },1000)
+
+     }else{
+         window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=rn9hm1@gmail.com.com&su=${$subject}&body=${$comment}`, `_blank`)
+     }
  }
