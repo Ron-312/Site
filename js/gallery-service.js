@@ -12,7 +12,8 @@ function _createProjects() {
     // if (projects) return projects;
     var projects = [
         ['MineSweeper', 'img/portfolio/mineSweeper.png', "best mine sweeper everrrrr", "https://ron-312.github.io/mineSweeper/", 'January 2017', 'Coding Academy', 'Sprint'],
-        ['Bookshop', "img/portfolio/bookShop.jpg", "best mine book shop everrrrr", "https://ron-312.github.io/BookShop/", 'January 2020', 'Coding Academy', 'Crud'],
+        ['Bookshop', "img/portfolio/bookShop.jpg", "best book shop everrrrr", "https://ron-312.github.io/BookShop/", 'January 2020', 'Coding Academy', 'Crud'],
+        ['GussWho?', 'img/portfolio/GusseWho.png', "I will read you mind!", "https://ron-312.github.io/GusseWho/", 'January 2020', 'Coding Academy', 'Best AI in the world']
     ]
         .map(_createProject)
 
