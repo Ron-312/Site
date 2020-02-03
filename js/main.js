@@ -2,17 +2,16 @@ console.log('Starting up');
 
 $(document).ready(onInit())
 
-function onInit(){
+function onInit() {
     renderPortfolio()
-    renderModals()
 }
 
 function renderPortfolio() {
-    var projects =  getProjsForDisplay()
-    var strHTMLs = projects.map(function(project,idx) {
+    var projects = getProjs()
+    var strHTMLs = projects.map(function (project, idx) {
         return `
         <div class="col-md-4 col-sm-6 portfolio-item">
-        <a class="portfolio-link" data-toggle="modal" href=#portfolioModal${idx}>
+        <a class="portfolio-link" data-toggle="modal" href=#portfolioModal${idx} onclick="renderModal(${idx})">
           <div class="portfolio-hover">
             <div class="portfolio-hover-content">
               <i class="fa fa-plus fa-3x"></i>
@@ -31,10 +30,10 @@ function renderPortfolio() {
     elPortfolio.innerHTML = strHTMLs.join('');
 }
 
-function renderModals(){
-    var modals =  getProjsForDisplay()
-    var strHTMLs = modals.map(function(modal,idx) {
-        return `
+function renderModal(idx) {
+    var modals = getProjs()
+    var modal = modals[idx]
+    var strHTML = `
         <div class="portfolio-modal modal fade" id="portfolioModal${idx}" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -62,8 +61,7 @@ function renderModals(){
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fa fa-times"></i>
                     Close Project</button>
-                    <button class="btn btn-primary" type="button">
-                    <i class="fa fa-times"></i>
+                    <button class="btn btn-primary" type="button" onclick="onOpenProject(${idx})">
                     Check It Out!</button>
               </div>
             </div>
@@ -73,7 +71,19 @@ function renderModals(){
     </div>
   </div>
         `
-    })
     var elModals = document.querySelector('.modals-main');
-    elModals.innerHTML = strHTMLs.join('');
+    elModals.innerHTML = strHTML;
 }
+
+function onOpenProject(idx) {
+    var projects = getProjs()
+    var project = projects[idx]
+    window.open(project.href, '_blank');
+}
+
+ function sendEmail(){
+     $email = $('.email-form').val()
+     $subject = $('.subject-form').val()
+     $comment = $('.comment-form').val()
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${$email}.com&su=${$subject}&body=${$comment}`, `_blank`)
+ }

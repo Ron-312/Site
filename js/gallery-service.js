@@ -3,7 +3,7 @@
 var KEY = 'Portfolio'
 var gPortfolio = _createProjects();
 
-function getProjsForDisplay() {
+function getProjs() {
     return gPortfolio
 }
 // privat functions
@@ -11,8 +11,8 @@ function _createProjects() {
     // var projects = loadFromStorage(KEY);
     // if (projects) return projects;
     var projects = [
-        ['MineSweeper', 'img/portfolio/01-thumbnail.jpg', "best mine sweeper everrrrr", "#portfolioModal1", 'January 2017', 'Coding Academy', 'Sprint'],
-        ['Bookshop', "img/portfolio/02-thumbnail.jpg", "best mine book shop everrrrr", "#portfolioModal2", 'January 2020', 'Coding Academy', 'Crud'],
+        ['MineSweeper', 'img/portfolio/mineSweeper.png', "best mine sweeper everrrrr", "https://ron-312.github.io/mineSweeper/", 'January 2017', 'Coding Academy', 'Sprint'],
+        ['Bookshop', "img/portfolio/bookShop.jpg", "best mine book shop everrrrr", "https://ron-312.github.io/BookShop/", 'January 2020', 'Coding Academy', 'Crud'],
     ]
         .map(_createProject)
 
